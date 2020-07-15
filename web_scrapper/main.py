@@ -28,10 +28,7 @@ def _news_scraper(news_site_uid):
     if article:
       logger.info('Article fetched')
       articles.append(article)
-    
-    if len(articles) == 5:
-      break
-
+      
   _save_articles(news_site_uid, articles)
 
 def _save_articles(news_site_uid, articles):

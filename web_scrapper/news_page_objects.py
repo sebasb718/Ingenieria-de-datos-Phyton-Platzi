@@ -7,6 +7,7 @@ class NewsPage:
   def __init__(self, news_site_uid, url):
     self._config = config()['news_sites'][news_site_uid]
     self._queries = self._config['queries']
+    self._url = url
     self._html = None
     
     self._visit(url)
@@ -39,6 +40,10 @@ class ArticlePage(NewsPage):
   def __init__(self, news_site_ui, url):
     super().__init__(news_site_ui, url)
   
+  @property
+  def url(self):
+    return self._url
+
   @property
   def title(self):
     result = self._select(self._queries['article_title'])
